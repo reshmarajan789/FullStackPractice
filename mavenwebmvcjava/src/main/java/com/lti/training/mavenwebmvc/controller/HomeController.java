@@ -22,6 +22,8 @@ public class HomeController {
 		}
 	
 	@GetMapping("/student")
+	
+	
 	public String studentData(Model model){
 {
 	Student student=new Student("Reshma","arreshmarajan@gamil.com");
@@ -31,10 +33,13 @@ public class HomeController {
 
 	}
 	
+	
 	/*
-	 * @GetMapping("/student") public ModelAndView studentData() { // logic to
-	 * process request Student student = new Student("First", "first@mailcom");
-	 * ModelAndView mv = new ModelAndView("student-view"); mv.addObject("student",
-	 * student); // return view page name back return mv; }
+	 * @GetMapping("/student") public String studentData(HttpServletRequest request,
+	 * HttpServletResponse response) { // public ModelAndView studentData() { //
+	 * logic to Student student = new Student("First", "first@mailcom");
+	 * ModelAndView mv = new ModelAndView("student-view");
+	 * mv.addObject("student",student); // return view page name back return mv; }
+	 * return "Student-view"; }
 	 */
 }
