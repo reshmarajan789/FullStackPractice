@@ -27,7 +27,25 @@ public class UserServiceImpl  implements UserService{
 		return userDetailDto;
 		
 	}
+
+	@Override
+	public UserDetailDto getUserDetail(Integer userId) {
+		
+		// fetch data from DB
+		
+				// java - 8
+				// Optional<User>
+				// Optional<User> userInfo = this.userRepository.findById(userId);
+				// userInfo.ifPresent()
+		User user=this.userRepository.findById(userId).orElse(new User());
+		// Optional<User> user = Optional.of(user);
+		
+				// convert Entity into DTO
+				UserDetailDto userDetailDto = 
+						new UserDetailDto(user.getId(), user.getName(), user.getEmailId());
+				return userDetailDto;
+			}
+	}
 	
 	
 		
-}

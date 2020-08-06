@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,6 +71,14 @@ import com.lti.usermicro.exception.UserConstraintException;
 	 * new ResponseEntity<UserExceptionDto>(exception, HttpStatus.BAD_REQUEST);
 	 * return response; }
 	 */
+ 
+ @GetMapping("/get/{userId}")
+	public ResponseEntity<UserDetailDto> getUserDetail(@PathVariable Integer userId){
+		UserDetailDto userDetailDto = this.userService.getUserDetail(userId);
+		ResponseEntity<UserDetailDto> response = 
+				new ResponseEntity<UserDetailDto>(userDetailDto, HttpStatus.OK);
+		return response;
+	}
  
  }
  
